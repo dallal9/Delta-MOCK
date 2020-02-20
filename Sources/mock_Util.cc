@@ -24,6 +24,7 @@ Last updated: 10 July 2017
 *******************************************************************************/
 
 #include "mock_Util.hh"
+#include <time.h>
 
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -296,7 +297,7 @@ void initialise_random( unsigned long int seed ){
 
     // Has a seed been provided? Use time if not.
     if( seed == 0 ){
-        seed = std::chrono::system_clock::now().time_since_epoch().count();
+        seed = (int)time(NULL); //std::chrono::system_clock::now().time_since_epoch().count();
     }
 
     // Instantiate generator
